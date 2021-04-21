@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
@@ -37,12 +37,6 @@ public class entercar : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerStay(Collider other)
     {
         if(other.tag == "Player")
@@ -56,29 +50,25 @@ public class entercar : MonoBehaviour
                     carScript.enabled = true;
                     boosterScript.enabled = true;
                     boosterScript2.enabled = true;
-                    playerScript.enabled = true;
+                    playerScript.enabled = false;
                     cameraScript.enabled = true;
                     playerCamScript.enabled = false;
                     crosshair.SetActive(false);
                     Player.SetActive(false);
                 }
-
                 if (!inCar) 
                 {
                     Player.SetActive(true);
                     carScript.enabled = false;
                     boosterScript.enabled = false;
                     boosterScript2.enabled = false;
-                    playerScript.enabled = false;
+                    playerScript.enabled = true;
                     cameraScript.enabled = false;
                     playerCamScript.enabled = true;
                     crosshair.SetActive(true);
 
                 }
-                
-
             }
-            
         }
     }
     private void OnTriggerExit(Collider other)
